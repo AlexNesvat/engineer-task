@@ -11,6 +11,6 @@ class SubscribeController extends Controller
     {
         $data = $request->all();
 
-        
+
     }
 }
