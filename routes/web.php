@@ -16,5 +16,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/home', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/subscribe', 'PageController@subscribePage')->name('page.subscribe');
+    Route::post('/subscribe', 'SubscribeController@subscribe')->name('subscribe');
+});
+
+Route::get('/confirm', 'SubscribeController@confirm')->name('confirm');

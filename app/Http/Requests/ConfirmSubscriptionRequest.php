@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\EmailExists;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubscribeRequest extends FormRequest
+class ConfirmSubscriptionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +24,8 @@ class SubscribeRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required','email', new EmailExists],
-            'name' => ['required','string']
+            'id' => ['required'],
+            'email' => ['required']
         ];
     }
 }
